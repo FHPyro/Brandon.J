@@ -5,9 +5,12 @@
 #include "StringData.h"
 using namespace std;
 
+//Initializing functions
 int linear_search(vector<string> container, string element);
 int binary_search(vector<string> container, string element);
 
+//Linear search function
+//Iterates through the container vector until finding the target element
 int linear_search(vector<string> container, string element){
     for (int i = 0; i < container.size(); i++){
         if (container[i] == element){
@@ -17,6 +20,9 @@ int linear_search(vector<string> container, string element){
     return -1;
 }
 
+//Binary Search Function
+//Cuts container vector in half and checks which half the element is in
+//Repeats this until the element is found
 int binary_search(vector<string> container, string element){
     int low = 0;
     int high = container.size() - 1;
@@ -36,6 +42,7 @@ int binary_search(vector<string> container, string element){
 }
 
 int main(){
+    //Each search is conducted after checking the time and then the total time is printed
     std::vector<string> container = getStringData();
     auto beginning_time = chrono::system_clock::now();
     linear_search(container, "not_here");
